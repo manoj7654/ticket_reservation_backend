@@ -68,8 +68,17 @@ if(q){
     console.log(error)
   }
 }
-
+const getData=async(req,res)=>{
+  try {
+    const result=await TicketModel.find()
+    let final=result[0].bookingDetails
+    res.send(final)
+  } catch (error) {
+    console.log(error)
+  }
+}
 module.exports = {
   book,
-  searchTicket
+  searchTicket,
+  getData
 };
